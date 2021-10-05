@@ -1,65 +1,58 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Todo List
 
-# Project Name
+"Todo List" is a simple website that displays a list of todos and allows you to add,edit and remove todos from that list.
 
-> One paragraph statement about the project.
+## Screenshots
 
-![screenshot](./app_screenshot.png)
-
-Additional description about the project and its features.
-
-## Built With
-
-- Major languages
-- Frameworks
-- Technologies used
+<img src="./src/todo1.png">
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://wuyepabdul.github.io/Todo-List/)
 
+## Built With
 
+- HTML
+- CSS
+- JS
+- Lots of love :heart:
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
+**To clone this project**
+**Run command: $git clone https://github.com/wuyepabdul/Todo-List.git**
+**or press the green Code button in the upper right corner and choose to download from the Download ZIP link.**
 
 ### Prerequisites
 
-### Setup
+- Code editor (VS Code, Sublime, Atom)
+  
+## Run Tests
 
-### Install
+```
+npx test
+```
 
-### Usage
+## Authors:
 
-### Run tests
+👤 **Abdul Wuyep**
 
-### Deployment
+[<code><img height="26" src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"></code>](https://www.github.com/wuyepabdul)
+[<code><img height="26" src="https://upload.wikimedia.org/wikipedia/sco/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></code>](https://twitter.com/nikoescobal)
+[<code><img height="26" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Linkedin.svg/1200px-Linkedin.svg.png"></code>](https://www.linkedin.com/in/abdul-wuyep-6a27721b8/)
+ <a href="mailto:abdul.wuyep@gmail.com?subject=Hey Abdul!"><img height="26" src="https://cdn.worldvectorlogo.com/logos/official-gmail-icon-2020-.svg"></a>
 
+ 👤 **Nikolas Escobal**
 
+[<code><img height="26" src="https://cdn.iconscout.com/icon/free/png-256/github-153-675523.png"></code>](https://github.com/nikoescobal)
+[<code><img height="26" src="https://upload.wikimedia.org/wikipedia/sco/thumb/9/9f/Twitter_bird_logo_2012.svg/1200px-Twitter_bird_logo_2012.svg.png"></code>](https://twitter.com/nikoescobal)
+[<code><img height="26" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Linkedin.svg/1200px-Linkedin.svg.png"></code>](https://www.linkedin.com/in/nikolas-escobal/)
+ <a href="mailto:niko.escobal@gmail.com?subject=Sup Niko?"><img height="26" src="https://cdn.worldvectorlogo.com/logos/official-gmail-icon-2020-.svg"></a>
 
-## Authors
+ ## 🤝 Contributing
 
-👤 **Author1**
+Contributions, issues and feature requests are welcome!
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/wuyepabdul/Todo-List/issues).
 
 ## Show your support
 
@@ -67,10 +60,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
 
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
+
