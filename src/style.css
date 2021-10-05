@@ -15,7 +15,7 @@ li:nth-child(even) {
 
 .btn {
   padding: 5px 20px;
-  box-shadow: 1px 0px 2px;
+  box-shadow: 0 1px 6px;
 }
 
 .input-field {
