@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="container">
+      <header class="header">Leaderboard</header>
+      <article class="card d-flex">
+        <div class="scores-container">
+          <div class="scores-heading d-flex">
+            <h2>Recent scores</h2>
+            <div class="form-btn">
+              <button type="submit" class="btn">Refresh</button>
+            </div>
+          </div>
+          <ul class="scores-board">
+            <li>
+              <small class="player-name">Name:</small>
+              <small class="player-score"> 100</small>
+            </li>
+            <li>
+              <small class="player-name">Name:</small>
+              <small class="player-score"> 100</small>
+            </li>
+            <li>
+              <small class="player-name">Name:</small>
+              <small class="player-score"> 100</small>
+            </li>
+            <li>
+              <small class="player-name">Name:</small>
+              <small class="player-score"> 100</small>
+            </li>
+          </ul>
+        </div>
+        <div class="form-section">
+          <h2>Add your score</h2>
+          <form>
+            <div class="input-group">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="input-field"
+                placeholder="Your name"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="number"
+                name="score"
+                id="score"
+                class="input-field"
+                placeholder="Your score"
+              />
+            </div>
+            <div class="form-btn">
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </article>
+    </section>
+    <footer class="footer">
+      <ul>
+        <li>Copyright</li>
+      </ul>
+    </footer>
+  </body>
+</html>
