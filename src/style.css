@@ -31,7 +31,6 @@ li:nth-child(even) {
   display: flex;
 }
 
-
 .success {
   background-color: rgb(157, 245, 157);
 }
@@ -40,7 +39,7 @@ li:nth-child(even) {
   background-color: rgb(238, 130, 130);
 }
 
-.info{
+.info {
   background-color: rgb(172, 190, 243);
 }
 
@@ -107,7 +106,7 @@ article h2 {
   border: 1px solid black;
 }
 
-.scores-board small{
+.scores-board small {
   font-size: 16px;
   font-weight: 600;
 }
