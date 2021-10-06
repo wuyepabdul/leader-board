@@ -35,13 +35,13 @@ li:nth-child(even) {
   padding: 20px;
 }
 
-.create-game{
+.create-game {
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
 }
 
-.create-game .btn{
+.create-game .btn {
   margin-left: 10px;
 }
 
@@ -51,6 +51,17 @@ li:nth-child(even) {
   font-size: 50px;
   font-weight: 900;
   padding: 20px;
+}
+
+.alert {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.success {
+  background-color: rgb(157, 245, 157);
 }
 
 .card {
