@@ -36,14 +36,45 @@ const createGame = () => {
     );
   });
 };
+/* `<li>
+      <small class="player-name">${score.user}:</small>
+      <small class="player-score"> ${score.score}</small>
+      </li>`*/
+
 
 const displayScores = async () => {
   const gameId = gameIdFromStorage();
+  const scoresUlTag = document.querySelector('.scoreboard-container');
+  const liTag = document.createElement('li');
+  const smallTag1 = document.createElement('small');
+  const smallTag2 = document.createElement('small');
+
+
   if (gameId) {
-    const response = await fetchData(
+    const { result } = await fetchData(
       `${process.env.BASE_URL}/games/${gameId}/scores`
     );
-    console.log('response', response);
+    if (result.length > 0) {
+      result.forEach((score) => {
+        smallTag1.textContent = score.user;
+        smallTag2.textContent = score.score;
+        liTag.appendChild(smallTag1);
+        liTag.appendChild(smallTag2);
+        scoresUlTag.appendChild(liTag.cloneNode(true));
+      });
+      console.log(scoresUlTag);
+    }
+    /*     const { result } = await fetchData(
+      `${process.env.BASE_URL}/games/${gameId}/scores`
+    );
+    if (result.length > 0) {
+      result.forEach((score) => {
+        scoresUltag.appendChild(`<li>
+        <small class="player-name">${score.user}:</small>
+        <small class="player-score"> ${score.score}</small>
+        </li>`);
+      });
+    } */
   } else {
     console.log('No game created');
   }
