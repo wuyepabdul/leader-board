@@ -47,21 +47,27 @@ li:nth-child(even) {
 
 .header {
   height: 100%;
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 50px;
   font-weight: 900;
   padding: 20px;
 }
 
 .alert {
+  display: none;
   width: 50%;
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+  font-weight: bold;
 }
 
 .success {
   background-color: rgb(157, 245, 157);
+}
+
+.error{
+  background-color: rgb(238, 130, 130);
 }
 
 .card {
