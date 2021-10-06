@@ -1,5 +1,5 @@
 import './style.css';
-import { postData, fetchData } from './scripts.js/apiCalls.js';
+import { postData, fetchData, postScoreData } from './scripts.js/apiCalls.js';
 
 const gameIdFromStorage = () => {
   const gameId = localStorage.getItem('gameId')
@@ -16,11 +16,11 @@ const createGame = () => {
     data.name = e.target.value;
   });
 
-  createBtn.addEventListener('click', (e) => {
+  createBtn.addEventListener('click', async (e) => {
     e.preventDefault();
     const alertDiv = document.querySelector('.alert');
 
-    const response = postData(data, `${process.env.BASE_URL}/games`);
+    const response = await postData(data, `${process.env.BASE_URL}/games`);
     console.log(response);
     localStorage.setItem(
       'gameId',
@@ -41,7 +41,7 @@ const displayScores = async () => {
   }
 };
 
-const createScore = async () => {
+const createScore = () => {
   const data = { user: '', score: '' };
   const userNameInput = document.querySelector('#username');
   const userScoreInput = document.querySelector('#userscore');
@@ -53,10 +53,12 @@ const createScore = async () => {
   userScoreInput.addEventListener('change', (e) => {
     data.score = e.target.value;
   });
-  createScoreBtn.addEventListener('click', (e) => {
+
+  createScoreBtn.addEventListener('click', async (e) => {
     const gameId = gameIdFromStorage();
+    
     e.preventDefault();
-    const response = postData(
+    const response = await postScoreData(
       data,
       `${process.env.BASE_URL}/games/${gameId}/scores`
     );
