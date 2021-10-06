@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="./style.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
       rel="stylesheet"
@@ -14,32 +13,35 @@
   <body>
     <section class="container">
       <header class="header">Leaderboard</header>
+      <div class="alert invisible"></div>
+      <div>
+        <form class="d-flex create-game">
+          <div class="input-group">
+            <input
+              type="text"
+              name="game"
+              id="game"
+              class="input-field"
+              placeholder="Create a new game"
+            />
+          </div>
+
+          <div>
+            <button type="submit" id="new-game-btn" class="btn">Create</button>
+          </div>
+        </form>
+      </div>
       <article class="card d-flex">
         <div class="scores-container">
           <div class="scores-heading d-flex">
             <h2>Recent scores</h2>
             <div class="form-btn">
-              <button type="submit" class="btn">Refresh</button>
+              <button type="submit" id="refresh-btn" class="btn">
+                Refresh
+              </button>
             </div>
           </div>
-          <ul class="scores-board">
-            <li>
-              <small class="player-name">Name:</small>
-              <small class="player-score"> 100</small>
-            </li>
-            <li>
-              <small class="player-name">Name:</small>
-              <small class="player-score"> 100</small>
-            </li>
-            <li>
-              <small class="player-name">Name:</small>
-              <small class="player-score"> 100</small>
-            </li>
-            <li>
-              <small class="player-name">Name:</small>
-              <small class="player-score"> 100</small>
-            </li>
-          </ul>
+          <ul id="scoreboard-container" class="scoreboard-container scores-board"></ul>
         </div>
         <div class="form-section">
           <h2>Add your score</h2>
@@ -47,8 +49,8 @@
             <div class="input-group">
               <input
                 type="text"
-                name="name"
-                id="name"
+                name="username"
+                id="username"
                 class="input-field"
                 placeholder="Your name"
               />
@@ -56,14 +58,16 @@
             <div class="input-group">
               <input
                 type="number"
-                name="score"
-                id="score"
+                name="userscore"
+                id="userscore"
                 class="input-field"
                 placeholder="Your score"
               />
             </div>
             <div class="form-btn">
-              <button type="submit" class="btn">Submit</button>
+              <button type="submit" id="add-score-btn" class="btn">
+                Submit
+              </button>
             </div>
           </form>
         </div>
