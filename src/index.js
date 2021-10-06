@@ -1,19 +1,27 @@
 import './style.css';
 import { postData, fetchData } from './scripts.js/apiCalls.js';
 
+const gameIdFromStorage = () => {
+  const gameId = localStorage.getItem('gameId')
+    ? JSON.parse(localStorage.getItem('gameId'))
+    : null;
+  return gameId;
+};
+
 const createGame = () => {
-  let inputValue;
+  const data = { name: '' };
   const newGame = document.querySelector('#game');
   const createBtn = document.querySelector('#new-game-btn');
   newGame.addEventListener('change', (e) => {
-    inputValue = e.target.value;
+    data.name = e.target.value;
   });
 
   createBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const alertDiv = document.querySelector('.alert');
 
-    const response = postData(inputValue, `${process.env.BASE_URL}/games`);
+    const response = postData(data, `${process.env.BASE_URL}/games`);
+    console.log(response);
     localStorage.setItem(
       'gameId',
       JSON.stringify(response.result.slice(14, 34))
@@ -22,10 +30,7 @@ const createGame = () => {
 };
 
 const displayScores = async () => {
-  const gameId = localStorage.getItem('gameId')
-    ? JSON.parse(localStorage.getItem('gameId'))
-    : null;
-
+  const gameId = gameIdFromStorage();
   if (gameId) {
     const response = await fetchData(
       `${process.env.BASE_URL}/games/${gameId}/scores`
@@ -37,9 +42,26 @@ const displayScores = async () => {
 };
 
 const createScore = async () => {
+  const data = { user: '', score: '' };
   const userNameInput = document.querySelector('#username');
   const userScoreInput = document.querySelector('#userscore');
-  console.log(userNameInput, userScoreInput);
+  const createScoreBtn = document.querySelector('#add-score-btn');
+
+  userNameInput.addEventListener('change', (e) => {
+    data.user = e.target.value;
+  });
+  userScoreInput.addEventListener('change', (e) => {
+    data.score = e.target.value;
+  });
+  createScoreBtn.addEventListener('click', (e) => {
+    const gameId = gameIdFromStorage();
+    e.preventDefault();
+    const response = postData(
+      data,
+      `${process.env.BASE_URL}/games/${gameId}/scores`
+    );
+    console.log('data', response);
+  });
 };
 
 displayScores();

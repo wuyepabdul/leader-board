@@ -2,7 +2,7 @@ export const postData = async (data, url) => {
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify({
-      name: data,
+      data,
     }),
     headers: { 'Content-type': 'application/json' },
   });
