@@ -11,9 +11,10 @@ const gameIdFromStorage = () => {
 const dismisAlert = () => {
   const alertMessage = document.querySelector('.alert');
   setTimeout(() => {
-    alertMessage.classList.remove('success', 'error');
+    alertMessage.classList.remove('success', 'error', 'info');
     alertMessage.classList.add('invisible');
-  }, 3000);
+    window.location.reload();
+  }, 2000);
 };
 
 const createGame = () => {
@@ -29,18 +30,22 @@ const createGame = () => {
     const alertDiv = document.querySelector('.alert');
 
     const response = await postData(data, `${process.env.BASE_URL}/games`);
-    console.log(response);
-    localStorage.setItem(
-      'gameId',
-      JSON.stringify(response.result.slice(14, 34))
-    );
+    if (response) {
+      localStorage.setItem(
+        'gameId',
+        JSON.stringify(response.result.slice(14, 34))
+      );
+      alertDiv.innerHTML = `Game created with ID ${response.result.slice(
+        14,
+        34
+      )}`;
+      alertDiv.classList.remove('invisible', 'info');
+      alertDiv.classList.add('success', 'visible');
+      dismisAlert();
+     
+    }
   });
 };
-/* `<li>
-      <small class="player-name">${score.user}:</small>
-      <small class="player-score"> ${score.score}</small>
-      </li>`*/
-
 
 const displayScores = async () => {
   const gameId = gameIdFromStorage();
@@ -48,7 +53,7 @@ const displayScores = async () => {
   const liTag = document.createElement('li');
   const smallTag1 = document.createElement('small');
   const smallTag2 = document.createElement('small');
-
+  const alertDiv = document.querySelector('.alert');
 
   if (gameId) {
     const { result } = await fetchData(
@@ -56,27 +61,17 @@ const displayScores = async () => {
     );
     if (result.length > 0) {
       result.forEach((score) => {
-        smallTag1.textContent = score.user;
-        smallTag2.textContent = score.score;
+        smallTag1.textContent = `${score.user} :`;
+        smallTag2.textContent = ` ${score.score}`;
         liTag.appendChild(smallTag1);
         liTag.appendChild(smallTag2);
         scoresUlTag.appendChild(liTag.cloneNode(true));
       });
-      console.log(scoresUlTag);
     }
-    /*     const { result } = await fetchData(
-      `${process.env.BASE_URL}/games/${gameId}/scores`
-    );
-    if (result.length > 0) {
-      result.forEach((score) => {
-        scoresUltag.appendChild(`<li>
-        <small class="player-name">${score.user}:</small>
-        <small class="player-score"> ${score.score}</small>
-        </li>`);
-      });
-    } */
   } else {
-    console.log('No game created');
+    alertDiv.innerHTML = 'No game has been created';
+    alertDiv.classList.remove('invisible');
+    alertDiv.classList.add('info', 'visible');
   }
 };
 

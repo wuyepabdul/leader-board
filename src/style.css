@@ -31,6 +31,19 @@ li:nth-child(even) {
   display: flex;
 }
 
+
+.success {
+  background-color: rgb(157, 245, 157);
+}
+
+.error {
+  background-color: rgb(238, 130, 130);
+}
+
+.info{
+  background-color: rgb(172, 190, 243);
+}
+
 .container {
   padding: 20px;
 }
@@ -70,14 +83,6 @@ li:nth-child(even) {
   display: none;
 }
 
-.success {
-  background-color: rgb(157, 245, 157);
-}
-
-.error {
-  background-color: rgb(238, 130, 130);
-}
-
 .card {
   justify-content: space-evenly;
   width: 80%;
@@ -99,6 +104,11 @@ article h2 {
 
 .scores-board {
   border: 1px solid black;
+}
+
+.scores-board small{
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .form-section {
