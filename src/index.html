@@ -14,12 +14,31 @@
   <body>
     <section class="container">
       <header class="header">Leaderboard</header>
+      <div class="create-gam">
+        <form class="d-flex create-game">
+          <div class="input-group">
+            <input
+              type="text"
+              name="game"
+              id="game"
+              class="input-field"
+              placeholder="Create a new game"
+            />
+          </div>
+
+          <div>
+            <button type="submit" id="new-game-btn" class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
       <article class="card d-flex">
         <div class="scores-container">
           <div class="scores-heading d-flex">
             <h2>Recent scores</h2>
             <div class="form-btn">
-              <button type="submit" class="btn">Refresh</button>
+              <button type="submit" id="refresh-btn" class="btn">
+                Refresh
+              </button>
             </div>
           </div>
           <ul class="scores-board">
@@ -63,7 +82,9 @@
               />
             </div>
             <div class="form-btn">
-              <button type="submit" class="btn">Submit</button>
+              <button type="submit" id="add-score-btn" class="btn">
+                Submit
+              </button>
             </div>
           </form>
         </div>

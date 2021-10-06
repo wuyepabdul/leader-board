@@ -20,7 +20,7 @@ li:nth-child(even) {
 
 .input-field {
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 5px;
 }
 
 .input-group {
@@ -33,6 +33,16 @@ li:nth-child(even) {
 
 .container {
   padding: 20px;
+}
+
+.create-game{
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.create-game .btn{
+  margin-left: 10px;
 }
 
 .header {
