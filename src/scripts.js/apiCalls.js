@@ -1,5 +1,4 @@
 export const postData = async (data, url) => {
-  console.log('data', data.name);
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify({
@@ -12,7 +11,6 @@ export const postData = async (data, url) => {
 };
 
 export const postScoreData = async (data, url) => {
-  console.log('data', data);
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify({
