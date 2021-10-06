@@ -8,6 +8,14 @@ const gameIdFromStorage = () => {
   return gameId;
 };
 
+const dismisAlert = () => {
+  const alertMessage = document.querySelector('.alert');
+  setTimeout(() => {
+    alertMessage.classList.remove('success', 'error');
+    alertMessage.classList.add('invisible');
+  }, 3000);
+};
+
 const createGame = () => {
   const data = { name: '' };
   const newGame = document.querySelector('#game');
@@ -46,6 +54,7 @@ const createScore = () => {
   const userNameInput = document.querySelector('#username');
   const userScoreInput = document.querySelector('#userscore');
   const createScoreBtn = document.querySelector('#add-score-btn');
+  const alertDiv = document.querySelector('.alert');
 
   userNameInput.addEventListener('change', (e) => {
     data.user = e.target.value;
@@ -56,13 +65,17 @@ const createScore = () => {
 
   createScoreBtn.addEventListener('click', async (e) => {
     const gameId = gameIdFromStorage();
-    
     e.preventDefault();
     const response = await postScoreData(
       data,
       `${process.env.BASE_URL}/games/${gameId}/scores`
     );
-    console.log('data', response);
+    if (response) {
+      alertDiv.innerHTML = 'User score added successfully';
+      alertDiv.classList.remove('invisible');
+      alertDiv.classList.add('success', 'visible');
+      dismisAlert();
+    }
   });
 };
 

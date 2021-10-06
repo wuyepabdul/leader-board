@@ -62,11 +62,19 @@ li:nth-child(even) {
   font-weight: bold;
 }
 
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
+
 .success {
   background-color: rgb(157, 245, 157);
 }
 
-.error{
+.error {
   background-color: rgb(238, 130, 130);
 }
 
