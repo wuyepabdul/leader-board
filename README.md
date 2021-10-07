@@ -10,7 +10,7 @@ Leaderboard is a website that that preserves user input and displays scores subm
 
 ## Live Demo
 
-[Live Demo Link](https://wuyepabdul.github.io/leader-board/dist/)
+[Live Demo Link](https://wuyepabdul.github.io/leader-board/)
 
 ## Built With
 
