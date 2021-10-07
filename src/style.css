@@ -48,16 +48,6 @@ li:nth-child(even) {
   margin-bottom: 80px;
 }
 
-.create-game {
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.create-game .btn {
-  margin-left: 10px;
-}
-
 .header {
   height: 100%;
   margin-top: 20px;
