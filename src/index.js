@@ -17,31 +17,16 @@ const dismisAlert = () => {
 };
 
 const createGame = () => {
-  const data = { name: '' };
-  const inputValue = document.querySelector('#game');
-  const createBtn = document.querySelector('#new-game-btn');
-  inputValue.addEventListener('change', (e) => {
-    data.name = e.target.value;
-  });
-
-  createBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
-    const alertDiv = document.querySelector('.alert');
-
-    const response = await postData(data, `${process.env.BASE_URL}/games`);
-    if (response) {
-      localStorage.setItem(
-        'gameId',
-        JSON.stringify(response.result.slice(14, 34)),
-      );
-      alertDiv.innerHTML = `Game created with ID ${response.result.slice(
-        14,
-        34,
-      )}`;
-      inputValue.value = '';
-      alertDiv.classList.remove('invisible', 'info');
-      alertDiv.classList.add('success', 'visible');
-      dismisAlert();
+  const data = { name: 'Cricket' };
+  window.addEventListener('load', async () => {
+    if (!gameIdFromStorage()) {
+      const response = await postData(data, `${process.env.BASE_URL}/games`);
+      if (response) {
+        localStorage.setItem(
+          'gameId',
+          JSON.stringify(response.result.slice(14, 34))
+        );
+      }
     }
   });
 };
@@ -56,7 +41,7 @@ const displayScores = async () => {
 
   if (gameId) {
     const { result } = await fetchData(
-      `${process.env.BASE_URL}/games/${gameId}/scores`,
+      `${process.env.BASE_URL}/games/${gameId}/scores`
     );
     if (result.length > 0) {
       result.forEach((score) => {
@@ -66,11 +51,11 @@ const displayScores = async () => {
         liTag.appendChild(smallTag2);
         scoresUlTag.appendChild(liTag.cloneNode(true));
       });
+    } else {
+      alertDiv.innerHTML = 'Scores have not been added';
+      alertDiv.classList.remove('invisible');
+      alertDiv.classList.add('info', 'visible');
     }
-  } else {
-    alertDiv.innerHTML = 'No game has been created';
-    alertDiv.classList.remove('invisible');
-    alertDiv.classList.add('info', 'visible');
   }
 };
 
@@ -100,10 +85,11 @@ const createScore = () => {
     e.preventDefault();
     const response = await postScoreData(
       data,
-      `${process.env.BASE_URL}/games/${gameId}/scores`,
+      `${process.env.BASE_URL}/games/${gameId}/scores`
     );
     if (response) {
-      alertDiv.innerHTML = 'User score added successfully. Click REFRESH button';
+      alertDiv.innerHTML =
+        'User score added successfully. Click REFRESH button';
       alertDiv.classList.remove('invisible');
       alertDiv.classList.add('success', 'visible');
       userNameInput.value = '';
