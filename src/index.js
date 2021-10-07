@@ -81,20 +81,27 @@ const createScore = () => {
   });
 
   createScoreBtn.addEventListener('click', async (e) => {
-    const gameId = gameIdFromStorage();
     e.preventDefault();
-    const response = await postScoreData(
-      data,
-      `${process.env.BASE_URL}/games/${gameId}/scores`
-    );
-    if (response) {
-      alertDiv.innerHTML =
-        'User score added successfully. Click REFRESH button';
-      alertDiv.classList.remove('invisible');
-      alertDiv.classList.add('success', 'visible');
-      userNameInput.value = '';
-      userScoreInput.value = '';
+    const gameId = gameIdFromStorage();
+    if (userNameInput.value.length < 1 || userScoreInput.value.length < 1) {
+      alertDiv.innerHTML = 'All fields are required';
+      alertDiv.classList.remove('invisible', 'info', 'success');
+      alertDiv.classList.add('error', 'visible');
       dismisAlert();
+    } else {
+      const response = await postScoreData(
+        data,
+        `${process.env.BASE_URL}/games/${gameId}/scores`
+      );
+      if (response) {
+        alertDiv.innerHTML =
+          'User score added successfully. Click REFRESH button';
+        alertDiv.classList.remove('invisible', 'info');
+        alertDiv.classList.add('success', 'visible');
+        userNameInput.value = '';
+        userScoreInput.value = '';
+        dismisAlert();
+      }
     }
   });
 };

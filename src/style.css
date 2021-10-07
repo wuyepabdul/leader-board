@@ -10,7 +10,7 @@ li {
 }
 
 li:nth-child(even) {
-  background-color: rgb(167, 163, 163);
+  background-color: rgb(228, 228, 228);
 }
 
 .btn {
@@ -59,7 +59,7 @@ li:nth-child(even) {
 .alert {
   display: none;
   width: 50%;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   text-align: center;
   padding: 20px;
   font-weight: bold;
@@ -112,8 +112,10 @@ article h2 {
 
 .footer {
   position: fixed;
+  font-size: large;
+  text-align: center;
   width: 100%;
   bottom: 0;
   padding: 20px 0;
-  background-color: grey;
+  background-color: rgb(228, 228, 228);
 }
